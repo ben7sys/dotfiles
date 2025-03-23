@@ -1,0 +1,38 @@
+# Common environment variables for all systems
+
+# Python environment variables
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONUNBUFFERED=1
+
+# Node environment variables
+export NODE_ENV="development"
+
+# Java environment variables
+#export JAVA_HOME="/usr/lib/jvm/default"
+
+# Go environment variables
+#export GOPATH="$HOME/go"
+#export PATH="$PATH:$GOPATH/bin"
+
+# Ruby environment variables
+#export GEM_HOME="$HOME/.gem"
+#export PATH="$PATH:$GEM_HOME/bin"
+
+# Rust environment variables
+#export CARGO_HOME="$HOME/.cargo"
+#export PATH="$PATH:$CARGO_HOME/bin"
+
+# Custom application settings
+# export MY_APP_CONFIG="$HOME/.config/myapp/config.yml"
+
+# Ollama serve Obsidian
+export OLLAMA_ORIGINS="app://obsidian.md*" ollama serve
+
+# GitHub
+export GITHUB_USERNAME=ben7sys
+
+# GTK Scale
+export SWT_GTK3=0
+export GDK_SCALE=1
+export GDK_DPI_SCALE=0.9
+
