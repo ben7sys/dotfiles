@@ -1,0 +1,80 @@
+# Scripts
+alias genfiles='$HOME/dotfiles/scripts/generate_file_list.sh'
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+# List directory contents
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Grep with color
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Common commands
+alias c='clear'
+alias h='history'
+alias j='jobs -l'
+alias now='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+
+# System
+alias update='sudo pacman -Syu'
+alias sysinfo='inxi -Fxxxz'
+
+# Git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
+# Python virtual environment
+alias ve='python -m venv ./venv'
+alias va='source ./venv/bin/activate'
+alias vd='deactivate'
+
+# Docker
+alias dps='docker ps'
+alias dimg='docker images'
+alias dex='docker exec -it'
+
+# Misc
+alias weather='curl wttr.in'
+alias myip='curl http://ipecho.net/plain; echo'
+
+# syno commands
+alias syno-start='sudo $HOME/dotfiles/scripts/syno-start.sh'
+alias syno-mount='sudo $HOME/dotfiles/scripts/syno-mount.sh'
+alias syno-unmount='sudo $HOME/dotfiles/scripts/syno-mount.sh -u'
+
+# Backup Home Folder to Syno
+alias syno-backup-home='sudo $HOME/dotfiles/scripts/backup_service.sh --active'
+
+# Start docker
+alias syno-docker='sudo systemctl start docker'
+
+# DNS
+alias flushdns='sudo systemd-resolve --flush-caches'
+
+# --- Archive ---
+alias compress='compress-tar'  # Standardmäßig auf compress-tar gesetzt, anpassbar
+alias decompress='decompress-tar'  # Standardmäßig auf decompress-tar gesetzt, anpassbar
+
+## alias compress/decompress
+alias compress-tar='echo "Usage: compress-tar archive.tar.gz /path/to/files" && tar -czvf'
+alias decompress-tar='echo "Usage: decompress-tar archive.tar.gz" && tar -xzvf'
+alias compress-bz2='echo "Usage: compress-bz2 archive.tar.bz2 /path/to/files" && tar -cjvf'
+alias decompress-bz2='echo "Usage: decompress-bz2 archive.tar.bz2" && tar -xjvf'
+alias compress-zip='echo "Usage: compress-zip archive.zip /path/to/files" && zip -r'
+alias decompress-zip='echo "Usage: decompress-zip archive.zip" && unzip'
+alias compress-7z='echo "Usage: compress-7z archive.7z /path/to/files" && 7z a'
+alias decompress-7z='echo "Usage: decompress-7z archive.7z" && 7z x'
