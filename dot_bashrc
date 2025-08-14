@@ -74,4 +74,3 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 export PATH=~/.cache/npm-global/bin:$PATH
 
-# some changes wegen chezmoi

@@ -1,0 +1,11 @@
+[Unit]
+Description=Socket for the OpenSSH key agent
+Documentation=man:ssh-agent(1)
+
+[Socket]
+# %t = $XDG_RUNTIME_DIR
+ListenStream=%t/ssh-agent.socket
+SocketMode=0666
+
+[Install]
+WantedBy=sockets.target

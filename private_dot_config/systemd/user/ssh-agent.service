@@ -1,0 +1,8 @@
+[Unit]
+Description=OpenSSH key agent
+Documentation=man:ssh-agent(1)
+
+[Service]
+Type=simple
+Environment=XDG_RUNTIME_DIR=%t
+ExecStart=/usr/bin/ssh-agent -D -a %t/ssh-agent.socket
