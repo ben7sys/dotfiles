@@ -67,7 +67,7 @@ exit_status() {
     echo -e "$symbol"
 }
 
-# Set the corrected compact fancy prompt
+# Enable compact fancy prompt
 PROMPT_COMMAND='PS1="${CYAN}\u${RESET}@${GREEN}\h${RESET} ${YELLOW}\W${RESET}${RED}$(git_branch)${BLUE}$(venv_info)${RESET} $(exit_status) ${MAGENTA}▶${RESET} "'
 
 # Enable color support for ls and grep
