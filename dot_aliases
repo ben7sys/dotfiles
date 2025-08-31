@@ -28,6 +28,7 @@ alias nowdate='date +"%d-%m-%Y"'
 
 # System
 alias update='sudo pacman -Syu'
+alias aptupdate='sudo apt update && sudo apt upgrade'
 alias sysinfo='inxi -Fxxxz'
 
 # Git
