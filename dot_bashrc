@@ -25,7 +25,6 @@ done
 # Load system-specific settings
 # Optional: load only if present and context matches.
 # Cross-distro OK (Arch/Debian); prefer feature detection over distro checks.
-# Host override (optional): ~/.env_$(hostname -s)
 # Session-wide env: systemd ~/.config/environment.d/*.conf; KDE ~/.config/plasma-workspace/env/*.sh
 [ -r ~/.env_systemd ] && [ -d /run/systemd/system ] && source ~/.env_systemd
 [ -r ~/.env_kde ] && [ -d ~/.config/plasma-workspace ] && source ~/.env_kde

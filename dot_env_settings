@@ -1,0 +1,11 @@
+# Central settings for your dotfiles
+# Edit these values to match your environment.
+# This file is sourced by ~/.env_common if present.
+
+# Storage / NAS
+export STORAGE_IP="192.168.1.100"   # e.g., your NAS IP
+export STORAGE_NAME="syno"           # e.g., syno, nas, storage
+
+# GitHub
+export GITHUB_USERNAME="ben7sys"
+

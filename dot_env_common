@@ -1,5 +1,8 @@
 # Common environment variables for all systems
 
+# Optional: central settings file (keep your own values here)
+[ -r "$HOME/.env_settings" ] && . "$HOME/.env_settings"
+
 # Python environment variables
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUNBUFFERED=1
@@ -35,4 +38,3 @@ export GITHUB_USERNAME=ben7sys
 export SWT_GTK3=0
 export GDK_SCALE=1
 export GDK_DPI_SCALE=0.9
-
