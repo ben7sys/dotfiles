@@ -1,10 +1,11 @@
 [include]
-    path = $HOME/.safe/gitconfig.local
+    path = ~/.safe/gitconfig.local
 
 [core]
     editor = vim
     autocrlf = input
     whitespace = trailing-space,space-before-tab
+    excludesfile = ~/.gitignore_global
 
 [color]
     ui = auto
@@ -32,7 +33,4 @@
     autocorrect = 1
 
 [credential]
-	helper = cache --timeout=3600
-[user]
-	email = your-email@example.com
-	name = your-username
+    helper = cache --timeout=3600
