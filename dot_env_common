@@ -38,3 +38,7 @@ export GITHUB_USERNAME=ben7sys
 export SWT_GTK3=0
 export GDK_SCALE=1
 export GDK_DPI_SCALE=0.9
+
+# Storage / NAS
+export STORAGE_IP="192.168.1.100"    # e.g., your NAS IP
+export STORAGE_NAME="syno"           # e.g., syno, nas, storage
