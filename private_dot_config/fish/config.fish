@@ -5,4 +5,6 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #function fish_greeting
 #    # smth smth
 #end
-set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+if not set -q SSH_AUTH_SOCK
+    set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+end

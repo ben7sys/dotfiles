@@ -3,6 +3,9 @@
 # Optional: central settings file (keep your own values here)
 [ -r "$HOME/.env_settings" ] && . "$HOME/.env_settings"
 
+# SSH agent via systemd user socket
+export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_RUNTIME_DIR/ssh-agent.socket}"
+
 # Python environment variables
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUNBUFFERED=1
