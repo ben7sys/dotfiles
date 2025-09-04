@@ -2,20 +2,20 @@
 # ~/.bashrc
 #
 
-# Load custom dir_colors if exists
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Load custom dir_colors if exists (interactive only)
 if [ -f ~/.dir_colors ]; then
     eval "$(dircolors -b ~/.dir_colors)"
 else
     eval "$(dircolors -b)"
 fi
 
-# Run fastfetch on terminal start if available
+# Run fastfetch on terminal start if available (interactive only)
 if command -v fastfetch &> /dev/null; then
-    fastfetch -l $HOME/.config/fastfetch/logos/7sys-big.ascii -c $HOME/.config/fastfetch/22-7sys.jsonc
+    fastfetch -l "$HOME/.config/fastfetch/logos/7sys-big.ascii" -c "$HOME/.config/fastfetch/22-7sys.jsonc"
 fi
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
 
 # Load common settings
 for file in ~/.{env_common,aliases,exports,functions}; do
@@ -71,8 +71,6 @@ PROMPT_COMMAND='PS1="${CYAN}\u${RESET}@${GREEN}\h${RESET} ${YELLOW}\W${RESET}${R
 
 # Enable color support for ls and grep
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
 fi
-export PATH=~/.cache/npm-global/bin:$PATH

@@ -10,11 +10,10 @@ This repo is sanitized for public use. Before applying, set a few values so comm
 chezmoi init https://github.com/ben7sys/dotfiles.git
 ```
 
-2) Set your values (choose one style)
+2) Set your values (simple & central)
 
-- Use the central settings file (recommended): edit `~/.env_settings` (managed here as `dot_env_settings`).
-- Environment variables in your shell: add to `~/.env_common` or export in your shell.
-- Edit headers in specific scripts/files (one‑off).
+- Use one central file: edit `~/.env_common` and keep your variables there.
+- Alternatively export ad‑hoc in the shell or edit the top of specific scripts.
 
 3) Dry‑run, then apply
 
@@ -37,14 +36,14 @@ chezmoi -v apply    # apply
 
 ## Where To Set Values
 
-- Env variables (preferred): avoid hardcoding.
+- Central env file (preferred): `~/.env_common` — loaded for Bash and POSIX shells.
   - Example:
     ```bash
     export STORAGE_IP="192.168.1.100"
     export STORAGE_NAME="syno"
     ```
 - Edit files directly (if you prefer static values).
-- Keep private/host‑specific values out of the repo:
+- Keep secrets out of the repo:
   
   - Session‑wide env: systemd user `~/.config/environment.d/*.conf`, KDE `~/.config/plasma-workspace/env/*.sh`
 
@@ -53,12 +52,15 @@ chezmoi -v apply    # apply
 - dot_gitconfig:1
   - Set `[user] name` and `[user] email` to your identity.
 
-- dot_env_settings:1
-  - Central place to set `STORAGE_IP`, `STORAGE_NAME`, and `GITHUB_USERNAME`.
-  - Loaded automatically by `dot_env_common` if present.
+- dot_profile:1
+  - Loads `~/.env_common` and `~/.exports`, sets locale/PATH, and (for Bash) sources `~/.bashrc`.
+
+- dot_bash_profile:1
+  - Sources `~/.profile` (preferred) or falls back to `~/.bashrc` for login shells.
 
 - dot_env_common:1
-  - Kept generic; it sources `~/.env_settings` when available.
+  - Central place for environment. Defines PATH additions, LANG/LC_ALL, SSH_AUTH_SOCK.
+  - Add your values like `STORAGE_IP`, `STORAGE_NAME`, `GITHUB_USERNAME` here.
 
 - dot_scripts/executable_syno-mount.sh:1
   - Uses `STORAGE_IP`, `STORAGE_NAME`, and your `$USER`. You can export these in your env instead of editing the file.
@@ -74,6 +76,12 @@ chezmoi -v apply    # apply
 - Works on Arch and Debian; prefer feature detection over distro checks.
  
 - Desktop/session specific: optionally use `~/.env_kde` and/or systemd user env, if you need session‑wide variables beyond the shell.
+
+## Shell Startup Order (Bash)
+
+- Login Bash: `~/.bash_profile` → `~/.profile` → `~/.bashrc`
+- Interactive non‑login Bash: `~/.bashrc`
+- POSIX sh/dash: `~/.profile`
 
 ## Chezmoi Basics
 

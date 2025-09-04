@@ -1,10 +1,21 @@
 # Common environment variables for all systems
 
-# Optional: central settings file (keep your own values here)
-[ -r "$HOME/.env_settings" ] && . "$HOME/.env_settings"
+# Central environment for all shells
+# Keep simple: put your personal settings here.
+
+# Ensure user bin comes first if present
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
 # SSH agent via systemd user socket
 export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_RUNTIME_DIR/ssh-agent.socket}"
+
+# NPM global bin (if used)
+export PATH="$HOME/.cache/npm-global/bin:$PATH"
+
+# Locale and editor (set only if unset)
+export LANG="${LANG:-de_DE.UTF-8}"
+export LC_ALL="${LC_ALL:-de_DE.UTF-8}"
+export EDITOR="${EDITOR:-vim}"
 
 # Python environment variables
 export PYTHONDONTWRITEBYTECODE=1
@@ -31,11 +42,11 @@ export NODE_ENV="development"
 # Custom application settings
 # export MY_APP_CONFIG="$HOME/.config/myapp/config.yml"
 
-# Ollama serve Obsidian
-export OLLAMA_ORIGINS="app://obsidian.md*" ollama serve
+# Ollama (for Obsidian integration)
+export OLLAMA_ORIGINS="app://obsidian.md*"
 
-# GitHub
-export GITHUB_USERNAME=ben7sys
+# GitHub (set in ~/.env_settings if needed)
+# export GITHUB_USERNAME=your-github-username
 
 # GTK Scale
 export SWT_GTK3=0

@@ -1,5 +1,7 @@
-#
 # ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+# Prefer unified init via ~/.profile (which will source ~/.bashrc for Bash)
+if [ -r "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+elif [ -r "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+fi
