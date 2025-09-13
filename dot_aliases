@@ -1,5 +1,5 @@
-# Scripts
-alias genfiles='$HOME/dotfiles/scripts/generate_file_list.sh'
+# Scripts (installed by chezmoi to ~/.scripts)
+alias genfiles='$HOME/.scripts/generate_file_list.sh'
 
 # Navigation
 alias ..='cd ..'
@@ -53,9 +53,9 @@ alias weather='curl wttr.in'
 alias myip='curl http://ipecho.net/plain; echo'
 
 # syno commands
-alias syno-start='sudo $HOME/dotfiles/scripts/syno-start.sh'
-alias syno-mount='sudo $HOME/dotfiles/scripts/syno-mount.sh'
-alias syno-unmount='sudo $HOME/dotfiles/scripts/syno-mount.sh -u'
+alias syno-start='sudo $HOME/.scripts/syno-start.sh'
+alias syno-mount='sudo $HOME/.scripts/syno-mount.sh'
+alias syno-unmount='sudo $HOME/.scripts/syno-mount.sh -u'
 
 # Backup Home Folder to Syno
 alias syno-backup-home='sudo $HOME/dotfiles/scripts/backup_service.sh --active'

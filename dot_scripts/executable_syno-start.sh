@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Start mount-syno.sh
-#$HOME/GitHub/dotfiles-one/scripts/mount-syno.sh
-$HOME/dotfiles/scripts/syno-mount.sh
+# Start NAS mount helper installed by chezmoi at ~/.scripts
+$HOME/.scripts/syno-mount.sh
 
 # Check if mount-syno.sh was successful
 if [ $? -eq 0 ]; then
