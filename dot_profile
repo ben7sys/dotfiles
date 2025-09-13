@@ -1,8 +1,8 @@
 #!/bin/sh
 # POSIX profile: keep it simple and avoid duplication with Bash.
 if [ -z "$BASH_VERSION" ]; then
-  # Non-Bash shells: load common env (aliases/exports optional)
-  for file in ~/.{env_common,exports}; do
+  # Non-Bash shells: load common env (aliases/exports optional) — POSIX-safe
+  for file in "$HOME/.env_common" "$HOME/.exports"; do
     [ -r "$file" ] && [ -f "$file" ] && . "$file"
   done
   # System-specific (only for non-Bash here; Bash handles this in ~/.bashrc)

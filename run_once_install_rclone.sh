@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+# Opt-in installation to avoid chezmoi apply blocking/non-interactive failures
+if [[ "${RCLONE_AUTO_INSTALL:-0}" != "1" ]]; then
+  printf '[rclone-setup] Skipping install (set RCLONE_AUTO_INSTALL=1 to enable)\n' >&2
+  exit 0
+fi
+
 # Optional: pin an exact version, e.g. 1.66.0
 # export RCLONE_VERSION=""
 
