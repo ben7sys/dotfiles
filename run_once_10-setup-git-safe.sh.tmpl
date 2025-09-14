@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Create ~/.safe and a private gitconfig.local on first apply.
+SAFE_DIR="$HOME/.safe"
+CONF="$SAFE_DIR/gitconfig.local"
+
+mkdir -p "$SAFE_DIR"
+chmod 700 "$SAFE_DIR"
+
+if [ ! -f "$CONF" ]; then
+  umask 177
+  cat >"$CONF" <<'EOF'
+# Private Git config created by chezmoi (run_once).
+# Fill in your identity; this file is not tracked by your dotfiles repo.
+
+[user]
+    name = YOUR NAME
+    email = your@email
+
+# Optional signing settings:
+# [commit]
+#     gpgsign = true
+# [user]
+#     signingkey = ABCDEF1234567890
+EOF
+  chmod 600 "$CONF"
+  echo "Created $CONF. Please edit it to set user.name and user.email."
+fi
+
